@@ -31,46 +31,67 @@ btnAll.forEach(btn => btn.addEventListener('click', (e) => {
     
 }));
 
-let tempDecorridoEmSegundos = 5; 
-let intervaloId = null; 
 
+
+// TIMER
+let tempDecorridoEmSegundos = 2500; 
+let intervaloId = null; 
 const startBtn = document.querySelector('#start-pause'); 
+const starOrPauseBtn = document.querySelector('#start-pause span');
+const imgPause = document.querySelector('#imgTime');
+const audioPause = new Audio('/src/assets/sound/pause.mp3'); 
+const audioInicar = new Audio('/src/assets/sound/play.wav');
+const audioTimer = new Audio('src/assets/sound/beep.mp3');
+const timeHtml = document.querySelector('#timer')
 
 const contagemRegressiva = () => {
     if (tempDecorridoEmSegundos <= 0) {
+         // Som quando o tempo acaba
+        audioTimer.volume = 0.3;
+        audioTimer.play();
         zerar();
-        const music = new Audio('src/assets/sound/beep.mp3'); // Som quando o tempo acaba
-        music.volume = 0.3;
-        music.play();
         return;
     }
-    tempDecorridoEmSegundos -= 1; // Decrementar o tempo
+    tempDecorridoEmSegundos -= 1; 
+    mostrarTempo()
     console.log('Temporizador: ' + tempDecorridoEmSegundos); 
-    // Mostrar tempo restante
 };
 
 startBtn.addEventListener('click', startPause); 
 
 function startPause() {
     if (intervaloId) {
-        // Se já está rodando, parar
-        const music = new Audio('src/assets/sound/pause.mp3'); 
-        music.volume = 0.3;
-        music.play();
-        zerar(); 
+        // Se já está rodando, apenas pausar
+        audioPause.volume = 0.3;
+        audioPause.play();
+        clearInterval(intervaloId); 
+        intervaloId = null;
+        starOrPauseBtn.textContent = 'Continuar';
+        imgPause.setAttribute('src', 'src/assets/img/play_arrow.png'); 
         return;
-    } else {
-        // Se não está rodando, iniciar
-        const music = new Audio('src/assets/sound/play.wav');
-        music.volume = 0.3;
-        music.play();
-        intervaloId = setInterval(contagemRegressiva, 1000); 
     }
+    // Se não está rodando, iniciar ou continuar
+    audioInicar.volume = 0.3;
+    audioInicar.play();
+    intervaloId = setInterval(contagemRegressiva, 1000); 
+    starOrPauseBtn.textContent = 'Pausar';
+    imgPause.setAttribute('src', 'src/assets/img/pause.png'); 
 }
 
 function zerar() {
     clearInterval(intervaloId); // Limpar o intervalo
-    intervaloId = null; 
     tempDecorridoEmSegundos = 5; 
-    console.log('Temporizador zerado'); 
+    imgPause.setAttribute('src', 'src/assets/img/play_arrow.png');  
+    starOrPauseBtn.textContent = 'Começar';
+    intervaloId = null;
+    mostrarTempo();
 }
+
+function mostrarTempo() {
+    const timer = tempDecorridoEmSegundos;
+    timeHtml.innerHTML = `${timer}`;
+}
+mostrarTempo()
+
+// const timer = new Date(tempDecorridoEmSegundos * 1000)
+// const timerFomated = timer.toLocaleDateString.
