@@ -32,7 +32,7 @@ html {
 
 body {
     min-height: 100vh;
-    background: url("/src/img/pattern.png");
+    background: url("/src/assets/img/pattern.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -55,6 +55,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     gap: 4rem;
     flex-wrap: wrap;
+    
 }
 
 .app__title {
@@ -72,10 +73,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .app__section-card-container {
     display: flex;
-    justify-content: center;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
 }
 
-.app__card {
+.app__card {justify-content: center;
+    align-items: center;
     border-radius: 3.2rem;
     border: 0.2rem solid var(--azul-royal);
     background: var(--fundo-card-timer);

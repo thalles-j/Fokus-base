@@ -1,36 +1,3 @@
-import { alterarContexto } from './changeContext.js';
-
-const musicInput = document.querySelector('#alternar-musica')
-const music = new Audio('src/assets/sound/luna-rise-part-one.mp3')
-music.loop = true
-music.volume = 0.2;
-
-musicInput.addEventListener('change', () => {
-    if(music.paused) {
-        music.play();
-    } else {
-        music.pause();
-    }
-})
-
-//BOTOES DE TEMPOS
-const btnAll = document.querySelectorAll('.app__card-button');
-let ultimoClick = null;
-btnAll.forEach(btn => btn.addEventListener('click', (e) => {
-    // Pega o valor do atributo data-contexto do botão clicado
-    const btnContexto = btn.getAttribute('data-contexto');
-    
-    if(ultimoClick){
-        ultimoClick.classList.remove('active');
-    }
-    btn.classList.add('active');
-        
-    ultimoClick = btn;
-    alterarContexto(btnContexto)
-   
-    
-}));
-
 let tempDecorridoEmSegundos = 5; 
 let intervaloId = null; 
 
@@ -61,7 +28,7 @@ function startPause() {
         return;
     } else {
         // Se não está rodando, iniciar
-        const music = new Audio('src/assets/sound/play.wav');
+        const music = new Audio('src/assets/sound/play.mp3');
         music.volume = 0.3;
         music.play();
         intervaloId = setInterval(contagemRegressiva, 1000); 

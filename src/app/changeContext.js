@@ -4,7 +4,7 @@ export function alterarContexto(contexto){
     const banner = document.querySelector('.app__image');
     const title = document.querySelector('.app__title');
     html.setAttribute('data-contexto', contexto);
-    banner.setAttribute('src', `/src/img/${contexto}.png`)
+    banner.setAttribute('src', `/src/assets/img/${contexto}.png`)
     
 
     let titleHTML;
