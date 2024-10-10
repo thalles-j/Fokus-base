@@ -17,4 +17,4 @@ formAddTak.addEventListener('submit', (event) => {
     task.push(taskObjet);
     localStorage.setItem('task', taskObjet)
 
-})
+});
