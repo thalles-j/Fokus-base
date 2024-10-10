@@ -9,15 +9,23 @@
 
 [data-contexto="foco"] {
     --main-bg-color: linear-gradient(180deg, #8B1FF8 0%, #041832 48.44%, #01080E 100%);
+    --main-btn-color:linear-gradient(180deg, #8c30e9 0%, #322053 48.44%, #081c2e 100%);
+    --main-checkbox-color: #9b53e4;
 }
 
 [data-contexto="descanso-curto"] {
     --main-bg-color: linear-gradient(180deg, #0F725C 0%, #041832 48.44%, #01080E 100%);
+    --main-btn-color:linear-gradient(180deg, #3ab197 0%, #344152 48.44%, #041d33 100%);
+    --main-checkbox-color: #14886f;
 }
 
 [data-contexto="descanso-longo"] {
     --main-bg-color: linear-gradient(180deg, #1875E9 0%, #041832 48.44%, #01080E 100%);
+    --main-btn-color:linear-gradient(180deg, #3680db 0%, #264163 48.44%, #0a263d 100%);
+    --main-checkbox-color: #458adf;
 }
+
+
 
 * {
     box-sizing: border-box;
@@ -28,6 +36,7 @@ html {
     background: var(--main-bg-color);
     min-height: 100vh;
     font-size: 10px;
+    
 }
 
 body {
@@ -66,6 +75,15 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 200;
     max-width: 46rem;
 }
+body {
+    transition: opacity 0.3s ease-in-out; /* Transição suave de 0.5s */
+    opacity: 1; 
+}
+
+body.hidden {
+    opacity: 0; 
+}
+
 
 .app__title-strong {
     font-weight: 600;
@@ -153,22 +171,28 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     outline: inherit;
     border-radius: 3.2rem;
-    background: var(--linear-botes);
+    background: var(--main-btn-color);
     margin-top: 3.2rem;
     font-size: 1.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    box-shadow: 2px 1px 10px black;
+    
 }
 
 .app__footer {
+    flex-direction: column;
     display: flex;
     width: 100%;
     padding: 2.8rem 6rem;
     justify-content: center;
     align-items: center;
     background: #010B15;
+}
+.app__footer p{
+    margin: 1rem;  
 }
 
 .app__footer-text {
@@ -219,7 +243,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .toggle-checkbox:checked + .toggle-switch {
-    background: var(--lils);
+    background: var(--main-checkbox-color);
 }
 
 .toggle-checkbox:checked + .toggle-switch:before {
