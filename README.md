@@ -1,6 +1,6 @@
-# Projeto Focus
+# Projeto Fokus
 
-O **Focus** é uma aplicação de timer desenvolvida para auxiliar no gerenciamento de tempo, utilizando a técnica Pomodoro. Ele alterna entre períodos de foco e descanso automaticamente, ajudando a manter a produtividade.
+O **Fokus** é uma aplicação de timer desenvolvida para auxiliar no gerenciamento de tempo, utilizando a técnica Pomodoro. Ele alterna entre períodos de foco e descanso automaticamente, ajudando a manter a produtividade.
 
 ## Funcionalidades
 
