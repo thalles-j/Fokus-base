@@ -26,6 +26,7 @@
     --main-bg-color: linear-gradient(180deg, #1875E9 0%, #041832 48.44%, #01080E 100%);
     --main-btn-color:linear-gradient(180deg, #3680db 0%, #264163 48.44%, #0a263d 100%);
     --main-checkbox-color: #458adf;
+    
 }
 
 
@@ -403,14 +404,21 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
 }
 
-.app_button-edit,
-.app_button-more {
+.app_button-edit{
     border: none;
     cursor: pointer;
     outline: inherit;
     background-color: transparent;
     display: flex;
     align-items: center;
+}
+.app_button-more{
+    border-radius: 5px var(--main-checkbox-color);
+    border-radius: 50%;
+    color: var(--main-checkbox-color);
+    font-weight: 800;
+    background-color: transparent;
+    padding: 5px 5px 2px;
 }
 
 .app__section-active-task-label {
@@ -536,9 +544,9 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    color: var(--lils);
+    color: var(--main-checkbox-color);
     border-radius: 3.2rem;
-    border: 0.2rem solid var(--lils);
+    border: 0.2rem solid var(--main-checkbox-color);
     width: 100%;
     margin-top: 4rem;
     padding: 1.8rem;
@@ -547,6 +555,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 150%;
 }
+.app__button--add-task:hover{
+    color: var(--azul-profundo);
+    background-color: var(--main-checkbox-color);
+
+}
+
 
 .app_button-edit:disabled {
     color: #e6e6e6;
